@@ -1,4 +1,5 @@
-App.messages = App.cable.subscriptions.create('MessagesChannel', {  
+// The App.messages subscription object responds to a function, send, that will send data to the Messages Channel to be broadcast.
+App.messages = App.cable.subscriptions.create('MessagesChannel', {
   received: function(data) {
     $("#messages").removeClass('hidden')
     return $("[data-chatroom='" + data.chatroom_id + "']").append(data.message);
